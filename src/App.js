@@ -1,14 +1,26 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { useContext } from "react";
+import {
+  createBrowserRouter,
+  Navigate,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 import "./App.css";
 import LeftBar from "./components/layout/LeftBar";
 import Navbar from "./components/layout/Navbar";
 import RightBar from "./components/layout/RightBar";
+import { AuthContext } from "./context/authContext";
+import { DarkModeContext } from "./context/darkModeContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 
 function App() {
+  const { currentUser } = useContext(AuthContext);
+
+  const { darkMode } = useContext(DarkModeContext);
+
   const Layout = () => {
     return (
       <div>
@@ -24,10 +36,22 @@ function App() {
     );
   };
 
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: (
+        <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: "/",

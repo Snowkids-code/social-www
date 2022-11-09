@@ -1,0 +1,7 @@
+@import "../themes/themes";
+
+.left-bar-container {
+    @include themify($themes) {
+        
+    }
+}

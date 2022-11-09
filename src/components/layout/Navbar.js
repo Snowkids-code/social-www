@@ -36,13 +36,20 @@ function Navbar() {
         </div>
       </div>
       <div className="right-container">
-        <PersonOutlined />
+        <Link to="/login" style={{ color: "inherit" }}>
+          <PersonOutlined />
+        </Link>
         <EmailOutlined />
         <NotificationsOutlined />
-        <div className="user-wrapper">
-          <img src={currentUser.profilePic} alt="" />
-          <span>{currentUser.name}</span>
-        </div>
+        <Link
+          to="/profile/fg"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <div className="user-wrapper">
+            <img src={currentUser.profilePic} alt="" />
+            <span>{currentUser.name}</span>
+          </div>
+        </Link>
       </div>
     </div>
   );

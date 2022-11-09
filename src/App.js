@@ -23,7 +23,7 @@ function App() {
 
   const Layout = () => {
     return (
-      <div>
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
         <div style={{ display: "flex" }}>
           <LeftBar />

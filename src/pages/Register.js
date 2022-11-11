@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
 function Register() {
   const { login } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const handleReg = () => {
     login();
+    navigate("/");
   };
   return (
     <div className="register-container">
@@ -30,7 +33,7 @@ function Register() {
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
             <input type="text" placeholder="Name" />
-            <button onClick={handleReg}>Register</button>
+            <button>Register</button>
           </form>
         </div>
       </div>

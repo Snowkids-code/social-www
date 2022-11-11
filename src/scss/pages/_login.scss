@@ -13,6 +13,14 @@
     min-height: 600px;
     overflow: hidden;
 
+    @include tablet {
+      width: 90%;
+    }
+
+    @media screen and (max-width: 1400px) {
+      width: 90%;
+    }
+
     .left {
       flex: 1;
       background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
@@ -24,6 +32,10 @@
       flex-direction: column;
       gap: 30px;
       color: white;
+
+      @include tablet {
+        display: none;
+      }
 
       h1 {
         font-size: 100px;

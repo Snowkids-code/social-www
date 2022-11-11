@@ -33,7 +33,7 @@ function Register() {
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
             <input type="text" placeholder="Name" />
-            <button>Register</button>
+            <button onClick={handleReg}>Register</button>
           </form>
         </div>
       </div>

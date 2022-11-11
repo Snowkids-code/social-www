@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -7,6 +8,8 @@ export const AuthContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("user")) || null
   );
 
+  const navigate = useNavigate();
+
   const login = () => {
     setCurrentUser({
       id: 1,
@@ -14,6 +17,7 @@ export const AuthContextProvider = ({ children }) => {
       profilePic:
         "https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600",
     });
+    navigate("/");
   };
 
   useEffect(() => {

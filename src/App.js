@@ -62,6 +62,7 @@ function App() {
           element: <Profile />,
         },
       ],
+      errorElement: <Login /> ,
     },
     {
       path: "/login",
@@ -71,6 +72,7 @@ function App() {
       path: "/register",
       element: <Register />,
     },
+    
   ]);
 
   return (
